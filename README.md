@@ -15,4 +15,5 @@ A 1 key keyboard that just fixes missing "&lt;" key on QWERTY/Layout AZERTY keyb
 █ ███ █   ▀▀█▀ █▀█▀▀██▄▄▀
 █ ▀▀▀ █ █ ▀▄█▀██▄█▄▄█  ▀▀
 ▀▀▀▀▀▀▀ ▀    ▀▀ ▀▀▀  ▀  ▀
+  http://bit.ly/1S1YXIa
 ```

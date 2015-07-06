@@ -13,6 +13,7 @@
  *					█ ███ █   ▀▀█▀ █▀█▀▀██▄▄▀
  *					█ ▀▀▀ █ █ ▀▄█▀██▄█▄▄█  ▀▀
  *					▀▀▀▀▀▀▀ ▀    ▀▀ ▀▀▀  ▀  ▀
+ * 					  http://bit.ly/1S1YXIa
  *					
  *	External "<" key for QWERTY keyboards and AZERTY layout.
  *	By Tixlegeek <tixlegeek@whoarehackers.com> @tixlegeek
