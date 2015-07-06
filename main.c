@@ -111,7 +111,6 @@ ISR(TIMER0_OVF_vect)
 {
 	if((PIND & BTN_BIT))
 	{
-		PORTD |= LED_BIT;
 		usb_keyboard_press(KEY_CHREVRON, 0);
 		_delay_ms(200);
 	}
