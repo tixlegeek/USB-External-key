@@ -44,9 +44,9 @@
  * THE SOFTWARE.
  */
 
-#include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
+#include <avr/io.h>
 #include <avr/wdt.h>
 #include <util/delay.h>
 #include "usb_keyboard.h"
