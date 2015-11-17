@@ -51,12 +51,25 @@
 #include <util/delay.h>
 #include "usb_keyboard.h"
 
+#define F_CPU 8000000ul
 #define CPU_PRESCALE(n)	(CLKPR = 0x80, CLKPR = (n))
+#define CPU_16MHz       0x00
+#define CPU_8MHz        0x01
+#define CPU_4MHz        0x02
+#define CPU_2MHz        0x03
+#define CPU_1MHz        0x04
+#define CPU_500kHz      0x05
+#define CPU_250kHz      0x06
+#define CPU_125kHz      0x07
+#define CPU_62kHz       0x08
 
-#define LED_BIT _BV(PD5)
-#define BTN_BIT _BV(PD6)
+#define BTN_UP _BV(PD3)
+#define BTN_DOWN _BV(PD4)
+#define BTN_LEFT _BV(PD5)
+#define BTN_RIGHT _BV(PD6)
 
-#define KEY_CHREVRON 100
+// UNUSED
+#define LED_BIT _BV(20)
 
 uint16_t idle_count=0;
 
@@ -67,10 +80,10 @@ int main(void)
 	wdt_disable();
 
 	// set for 16 MHz clock
-	CPU_PRESCALE(0);
+	CPU_PRESCALE(CPU_16MHz);
 
 	DDRD = 0xFF;
-	DDRD &= ~(BTN_BIT);
+	DDRD &= ~(BTN_UP) | ~(BTN_DOWN) | ~(BTN_LEFT) | ~(BTN_RIGHT);
 	PORTD = 0xFF;
 
 	// Configure timer 0 to generate a timer overflow interrupt every
@@ -87,7 +100,6 @@ int main(void)
 	usb_init();
 	while (!usb_configured())
 	{
-		PORTD ^= LED_BIT;
 		_delay_ms(50); 	
 	}
 
@@ -97,8 +109,7 @@ int main(void)
 
 	while (1) 
 	{
-		PORTD ^= LED_BIT;
-		_delay_ms(1000); 	
+		_delay_ms(200); 	
 	}
 
 }
@@ -108,11 +119,12 @@ int main(void)
 */
 ISR(TIMER0_OVF_vect)
 {
-	if((PIND & BTN_BIT))
+	if((PIND & BTN_UP))
 	{
-		usb_keyboard_press(KEY_CHREVRON, 0);
+		usb_keyboard_press(KEY_UP, 0);
 		_delay_ms(200);
 	}
+
 }
 
 
